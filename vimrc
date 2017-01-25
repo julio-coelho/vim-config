@@ -1,38 +1,30 @@
 call pathogen#infect()
 call pathogen#helptags()
 
-set nocompatible "ensures vim over vi
-set number
-set ruler "add line/column count to the bottom of screen
-"syntax on
-syntax enable
-set noerrorbells visualbell t_vb= "turn off annoying bells
-set tags=.tags "destination file for ctags
-set softtabstop=2 "number of space chars a tab counts for
-set shiftwidth=2 "number of space chars for indentation
-set expandtab "insert space characters whenever the tab key is pressed
-set tabstop=2 "space chars inserted when tab key is pressed
-set autoindent
+set nocompatible                "We're running Vim, not Vi!
+set number                      "Show line numbers
+set showmatch                   "Highlight matching brace
+set hlsearch                    "Highlight all search results
+set smartcase                   "Enable smart-case search
+set ignorecase                  "Always case-insensitive
+set incsearch                   "Searches for strings incrementally
+set autoindent                  "Auto-indent new lines
+set shiftwidth=4                "Number of auto-indent spaces
+set smartindent                 "Enable smart-indent
+set smarttab                    "Enable smart-tabs
+set softtabstop=4               "Number of spaces per Tab
+set ruler                       "Show row and column ruler information
+set history=1000                "Number of undo levels
+set backspace=indent,eol,start  "Backspace behaviour
+set browsedir=buffer		"Set the current directory on open file
+set splitright                  "Opens new split on the right
+set splitbelow                  "Opens new vsplit on the bottom
+set showcmd                     "Show incomplete cmds down the bottom
+set showmode                    "Show current mode down the bottom
 
-let b:javascript_fold=0
-
-filetype plugin indent on
-
-" For MacVim
-if has('gui_running')
-  syntax enable
-  set background=dark
-  colorscheme solarized
-endif
-
-
-set splitright "opens new split on the right
-set splitbelow "open new vsplit on the bottom
-
-" Remove trailling whitespace on :w
-autocmd BufWritePre * :%s/\s\+$//e
-
-" Incremental search
-set incsearch
+syntax on                       "Enable syntax highlighting
+filetype on                     "Enable filetype detection
+filetype indent on              "Enable filetype-specific indenting
+filetype plugin on              "Enable filetype-specific plugins
 
 highlight Cursor guibg=Green guifg=NONE
